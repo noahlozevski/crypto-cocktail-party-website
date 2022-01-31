@@ -1,12 +1,19 @@
+import Link from 'next/link'
+
+import { useRouter } from 'next/router'
+
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className="background-tile-blue">
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        <Link href="/terms">
+          <a>Terms</a>
+        </Link>
 
         <p className={styles.description}>
           Get started by editing{' '}
@@ -52,7 +59,7 @@ export default function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            {/* <img src={require("./vercel.svg")} alt="Vercel Logo" width={72} height={16} /> */}
+            {/* <img src={require("./images/bluetile.svg")} alt="Vercel Logo" width={72} height={16} /> */}
           </span>
         </a>
       </footer>

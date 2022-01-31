@@ -5,6 +5,10 @@ const optimizedImages = require('next-optimized-images')
 
 const nextConfig = {
   reactStrictMode: true,
+
+  env: {
+
+  }
 }
 
 const imageLoaderConfig = {
