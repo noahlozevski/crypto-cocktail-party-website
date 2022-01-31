@@ -1,0 +1,50 @@
+#!/usr/local/bin/fish
+set -eU pipefail
+
+set datetimestamp (date +%Y-%m-%d.%H%M%S)
+set CLOUDFRONT_DISTRIBUTION_ID "EE20T66B8BKF7"
+set NEW_ORIGIN_PATH "/artifacts/dev/$datetimestamp"
+set CLOUDFRONT_ORIGIN_ID "crypto-cocktail-party-website.s3.us-east-2.amazonaws.com"
+set DIST_CONFIG_OLD_FILENAME "dist-config.json"
+set DIST_CONFIG_NEW_FILENAME "dist-config2.json"
+
+echo "building static site"
+yarn build
+echo "done building site"
+
+echo "uploading files to s3 with new prefix $NEW_ORIGIN_PATH"
+aws s3 cp ./out "s3://crypto-cocktail-party-website$NEW_ORIGIN_PATH/" --recursive
+echo "done uploading to s3"
+
+# this part is annoying since there isnt an aws cli command to just update the origin path
+# instead must edit the json manually and update entire distribution
+echo "update cloudfront origin base path to use new version"
+aws cloudfront get-distribution --id $CLOUDFRONT_DISTRIBUTION_ID > $DIST_CONFIG_OLD_FILENAME
+
+set Etag (cat $DIST_CONFIG_OLD_FILENAME | jq '.ETag' | tr -d \")
+
+cat $DIST_CONFIG_OLD_FILENAME | jq \
+    --arg targetOriginId $CLOUDFRONT_ORIGIN_ID \
+    --arg newOriginPath $NEW_ORIGIN_PATH \
+    '.Distribution.DistributionConfig | .Origins.Items = (.Origins.Items | map(if (.Id == $targetOriginId) then (.OriginPath = $newOriginPath) else . end))' \
+    > $DIST_CONFIG_NEW_FILENAME
+
+aws cloudfront update-distribution --id $CLOUDFRONT_DISTRIBUTION_ID \
+    --distribution-config "file://$DIST_CONFIG_NEW_FILENAME" \
+    --if-match $Etag \
+    > /dev/null
+
+# remove temp config files
+rm -f $DIST_CONFIG_OLD_FILENAME $DIST_CONFIG_NEW_FILENAME
+echo "updated cf distribution"
+
+
+echo "invalidate current caches"
+aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+echo "complete"
+
+echo "removing build files"
+rm -rf ./out
+echo "complete"
+
+
