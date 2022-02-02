@@ -1,8 +1,206 @@
+@import ../animations
+
 #home
   font-family: 'FatMarker'
-  height: 100vh
-  display: flex
-  justify-content: center
-  align-items: center
+  // height: 100vh
+  // display: flex
+  // justify-content: center
+  // align-items: center
+  $banner-content-height: 42px
+  $banner-item-margin: 24px
 
-  // .gallery-container
+  .marquee-container
+    z-index: 1
+    max-width: 100vw
+    .scrolling-nft
+      $size: 150px
+      width: $size
+      height: $size
+
+  .marquee-container-text
+    height: 80px
+    // background: #fff
+    // background: #5a5a5a75
+    @include gradient-border
+
+
+    .coming-soon-marquee
+      color: $white
+      font-size: $banner-content-height
+      text-transform: uppercase
+      font-family: 'Jua'
+      letter-spacing: 2px
+
+
+      .text,.drink-container,.text-logo
+        margin: 0 $banner-item-margin
+
+  .drink-container
+
+    .drink
+      // margin-top: 20px
+      // transform: translateY(50px)
+      $size: $banner-content-height - 4px
+      width: $size
+      height: $size
+
+      @include rotate-self(2s, linear)
+
+      path
+        fill: $white
+
+  .text-logo-container
+    .text-logo
+      $size: $banner-content-height - 4px
+      // width: $size
+      height: $size
+      transform: translateY(4px)
+
+      // @include rotate-self(2s, linear)
+
+      path
+        fill: $white
+
+.cycle-container
+  overflow: hidden
+  // border-radius: 15px
+  $size: 480px
+  width: $size
+  height: $size
+
+  .cycle
+    $w: 512px
+    $h: 514px
+    // width: $w
+    // height: $h
+    object-fit: cover
+    // object-position: 40px 0
+    object-position: -1 * (($w - $size) / 2) -1 * (($h - $size) / 2)
+    // object-position: -50% 50%
+
+.mint-info-container
+  display: flex
+  flex-direction: column
+  // place-content: center
+  align-items: center
+  justify-content: center
+  text-align: center
+
+  .mint-info
+    white-space: nowrap
+    font-family: 'FatMarker'
+    font-size: 60px
+    color: $white
+    padding: 12px 24px
+
+
+.headroom
+
+.headroom--pinned
+  // backdrop: none
+  backdrop: blur(5px)
+  background-color: #76767673
+
+.reversed
+  animation-direction: reverse !important
+
+
+
+nav.app-nav
+  display: flex
+  align-items: center
+  .logo-container
+    align-items: center
+    display: flex
+
+  .nav-link
+    margin: 0 12px
+
+.page
+  min-height: 100vh
+  position: relative
+
+
+.about-page
+  font-family: 'AlienFrens'
+  .about-container
+
+  .purple-with-black-border
+    background: $purple
+    border: 4px solid $black
+
+  .about-info-box
+    text-align: left
+    color: $white
+
+  .about-title
+    text-transform: uppercase
+    font-size: 52px
+    letter-spacing: 3px
+    margin: 0
+
+  .about-text
+    font-family: "FatMarker"
+    font-size: 1.5rem
+    font-weight: 300
+
+
+
+// .gradient-border
+  // border-radius: 50px
+  // border: 10px solid transparent
+  // background: linear-gradient(45deg,red,blue) border-box
+  // -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)
+  // -webkit-mask-composite: xor
+  // mask-composite: exclude
+
+//   --borderWidth: 3px
+//   background: #1D1F20
+//   position: relative
+//   border-radius: var(--borderWidth)
+//   // overflow: visible !important
+
+// .gradient-border:after
+//   content: ''
+//   position: absolute
+//   top: calc(-1 * var(--borderWidth))
+//   left: calc(-1 * var(--borderWidth))
+//   height: calc(100% + var(--borderWidth) * 2)
+//   width: calc(100% + var(--borderWidth) * 2)
+//   background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)
+//   border-radius: calc(2 * var(--borderWidth))
+//   z-index: -1
+//   animation: animatedgradient 3s ease alternate infinite
+//   background-size: 300% 300%
+
+// @keyframes animatedgradient
+//   0%
+//     background-position: 0% 50%
+
+//   50%
+//     background-position: 100% 50%
+
+//   100%
+//     background-position: 0% 50%
+
+// // .gradient-border
+//   --angle: 0deg
+//   // width: 50vmin
+//   // height: 50vmin
+//   // border: 1rem solid
+//   border: 4px solid
+//   // border-radius: 25px
+
+
+// @keyframes rotate
+//   to
+//     --angle: 360deg
+
+
+// @property --angle
+//   syntax: '<angle>'
+//   initial-value: 0deg
+//   inherits: false
+
+
+

@@ -13,12 +13,20 @@
   100%
     background-position: 0% 50%
 
+@mixin rotate-self($duration: 2s, $easing-func: linear)
+  animation: rotate-360 $duration infinite $easing-func
+
+@keyframes rotate-360
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(359deg)
 
 
 .svg
   $size: 50px
   position: absolute
-  bottom: -100vh
+  bottom: -10vh
   transform-style: preserve-3d
   height: $size
   width: $size
@@ -27,8 +35,7 @@
     fill: #000
     fill-opacity: 0.15
 
-$total: 16
-
+$total: 20
 @for $i from 1 through $total
   .svg:nth-of-type(#{$i})
     left: random(100) * 1% - 20
@@ -39,7 +46,7 @@ $total: 16
     // filter: blur($i - $total - 2 + px)
     @keyframes raise#{$i}
       to
-        bottom: 150vh
+        bottom: 130vh // adjust to height of the page
         transform: scale(.15 * $i + .5) rotate(random(360) + deg)
 
 
@@ -117,3 +124,60 @@ $total: 16
 .stop-shape
   -webkit-animation-play-state: paused
   animation-play-state: paused
+
+// @mixin gradient-border($border-width: 3px)
+//   // background: #1D1F20
+//   position: relative
+
+//   &:after
+//     content: ''
+//     position: absolute
+//     // top: calc(-1 * #{$border-width})
+//     // left: calc(-1 * #{$border-width})
+//     // height: calc(100% + #{$border-width} * 2)
+//     // width: calc(100% + #{$border-width} * 2)
+//     bottom: 0
+//     height: 4px
+//     width: 100%
+//     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)
+//     // border-radius: calc(2 * #{$border-width})
+//     z-index: -1
+//     animation: animated-border-gradient 3s ease alternate infinite
+//     background-size: 300% 300%
+
+// @keyframes animated-border-gradient
+//   0%
+//     background-position: 0% 50%
+//   50%
+//     background-position: 100% 50%
+//   100%
+//     background-position: 0% 50%
+
+
+makes marque flash rainbow
+@mixin gradient-border($border-width: 3px)
+  background: #1D1F20
+  position: relative
+
+  &:after
+    content: ''
+    position: absolute
+    // top: calc(-1 * #{$border-width})
+    // left: calc(-1 * #{$border-width})
+    // height: calc(100% + #{$border-width} * 2)
+    // width: calc(100% + #{$border-width} * 2)
+    height: 100%
+    width: 100%
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)
+    // border-radius: calc(2 * #{$border-width})
+    z-index: -1
+    animation: animated-border-gradient 7s ease-in-out alternate infinite
+    background-size: 300% 300%
+
+@keyframes animated-border-gradient
+  0%
+    background-position: 0% 50%
+  50%
+    background-position: 100% 50%
+  100%
+    background-position: 0% 50%

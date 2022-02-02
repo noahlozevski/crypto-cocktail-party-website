@@ -1,0 +1,18 @@
+export const NFT_IMAGE_SRCS = [
+  '@/public/images/scrolling-nfts/Black Hole.png',
+  '@/public/images/scrolling-nfts/Browser.png',
+  '@/public/images/scrolling-nfts/Chicken Wing.png',
+  '@/public/images/scrolling-nfts/Crypto.png',
+  '@/public/images/scrolling-nfts/Cucci.png',
+  '@/public/images/scrolling-nfts/Greece.png',
+  '@/public/images/scrolling-nfts/Green Dildo.png',
+  '@/public/images/scrolling-nfts/Macintosh.png',
+  '@/public/images/scrolling-nfts/Mario.png',
+  '@/public/images/scrolling-nfts/Microchip.png',
+  '@/public/images/scrolling-nfts/Midas.png',
+  '@/public/images/scrolling-nfts/Mondrian.png',
+  '@/public/images/scrolling-nfts/OG Chicken.png',
+  '@/public/images/scrolling-nfts/OG Cockette.png',
+  '@/public/images/scrolling-nfts/Poker.png',
+  '@/public/images/scrolling-nfts/Spunky.png',
+]

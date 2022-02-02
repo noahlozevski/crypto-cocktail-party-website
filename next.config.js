@@ -8,11 +8,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // images: {
-  //   disableStaticImages: true,
-  // },
-  // webpack5: false
-
+  images: {
+    loader: 'custom',
+    disableStaticImages: true,
+  },
   env: {},
 }
 
@@ -44,14 +43,4 @@ const imageLoaderConfig = {
   },
 }
 
-module.exports = withPlugins(
-  [
-    [
-      optimizedImages,
-      {
-        ...imageLoaderConfig,
-      },
-    ],
-  ],
-  nextConfig
-)
+module.exports = withPlugins([[optimizedImages, imageLoaderConfig]], nextConfig)

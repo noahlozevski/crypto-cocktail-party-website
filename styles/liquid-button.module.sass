@@ -1,18 +1,19 @@
 @import variables
 
 .button
-  $border-radius: 25px
+  $border-radius: 36px
   // $initial-background: none
   $active-color: #3568ff
 
   appearance: none
-  border: 4px dashed #b4b4b47a
+  border: 4px solid #dadada7a
   position: relative
   // background: $initial-background
   background-color: rgb(255,255,255,0.1)
   color: #fff
   outline: none
   cursor: pointer
+  // max-width: 300px
   // font-size: 14px
   // line-height: 21px
   // font-weight:
@@ -26,6 +27,13 @@
   font-size: 1.5rem
   padding: 12px 24px
   // transition: opacity
+  transition: all var(--duration, .25s) ease-out
+
+  &:hover
+    --spacing: 0
+    --duration: .4s
+
+    border-color: $white
 
   span
     position: relative
@@ -41,9 +49,6 @@
     fill: $active-color
     circle
       transition: transform var(--duration, .25s) ease-out
-  &:hover
-    --spacing: 0
-    --duration: .4s
 
 
 .topLeft
