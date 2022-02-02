@@ -1,0 +1,63 @@
+@import variables
+
+.button
+  $border-radius: 25px
+  // $initial-background: none
+  $active-color: #3568ff
+
+  appearance: none
+  border: 4px dashed #b4b4b47a
+  position: relative
+  // background: $initial-background
+  background-color: rgb(255,255,255,0.1)
+  color: #fff
+  outline: none
+  cursor: pointer
+  // font-size: 14px
+  // line-height: 21px
+  // font-weight:
+  display: block
+  // width: 132px
+  text-align: center
+  border-radius: $border-radius
+  // margin: 0 auto
+  // padding: 12px 0
+  font-family: 'FatMarker'
+  font-size: 1.5rem
+  padding: 12px 24px
+  // transition: opacity
+
+  span
+    position: relative
+    z-index: 1
+  svg
+    display: block
+    border-radius: $border-radius
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    fill: $active-color
+    circle
+      transition: transform var(--duration, .25s) ease-out
+  &:hover
+    --spacing: 0
+    --duration: .4s
+
+
+.topLeft
+  transform: translate(var(--spacing, -16px), var(--spacing, -40px))
+  fill: $fire-orange
+.middleBottom
+  transform: translate(var(--spacing, 8px), var(--spacing, 40px))
+  fill: $pink
+.topRight
+  transform: translate(var(--spacing, 40px), var(--spacing, -40px))
+  fill: $light-green
+.rightBottom
+  transform: translate(var(--spacing, 4px), var(--spacing, 40px))
+  fill: $violet
+.leftBottom
+  transform: translate(var(--spacing, -40px), var(--spacing, 40px))
+  fill: $light-purple

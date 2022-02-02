@@ -5,10 +5,15 @@ const optimizedImages = require('next-optimized-images')
 
 const nextConfig = {
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // images: {
+  //   disableStaticImages: true,
+  // },
+  // webpack5: false
 
-  env: {
-
-  }
+  env: {},
 }
 
 const imageLoaderConfig = {
@@ -39,12 +44,14 @@ const imageLoaderConfig = {
   },
 }
 
-module.exports = withPlugins([
+module.exports = withPlugins(
   [
-    optimizedImages,
-    {
-      ...nextConfig,
-      ...imageLoaderConfig,
-    },
+    [
+      optimizedImages,
+      {
+        ...imageLoaderConfig,
+      },
+    ],
   ],
-])
+  nextConfig
+)

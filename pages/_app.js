@@ -1,4 +1,4 @@
-import '../styles/global.sass'
+import '~/styles/global.sass'
 
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -27,7 +27,7 @@ const App = ({
 }) => (
   <CacheProvider value={emotionCache}>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <CssBaseline enableColorScheme />
       {typeof Component.getLayout === 'function' ? (
         Component.getLayout(<Component {...pageProps} />)
       ) : (
