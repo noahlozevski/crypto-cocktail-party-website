@@ -228,12 +228,29 @@
 .reversed
   animation-direction: reverse !important
 
+// @include md
+//   nav.app-nav
+//     .logo-container
+//       display: flex !important
 
-
-nav.app-nav
+.app-nav
   display: flex
   align-items: center
-  .logo-container
+  width: 100%
+  justify-content: space-between
+
+  .side-container-width
+    width: 180px
+
+  .link-container
+    display: flex
+    align-items: center
+    // float: right
+
+  // .logo-container
+  //   display: none
+
+  .text-logo-container,.logo-container
     align-items: center
     display: flex
 
@@ -241,7 +258,6 @@ nav.app-nav
     margin: 0 12px
 
 .page
-  min-height: max(100vh, 1000px)
   position: relative
 
 
