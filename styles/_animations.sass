@@ -1,4 +1,5 @@
 @import variables
+@import utils
 
 @mixin gradient-backdrop($duration: 15s, $c1: $orange, $c2: $violet, $c3: $light-blue, $c4: $light-green)
   background: linear-gradient(-45deg, $c1, $c2, $c3, $c4)
@@ -23,7 +24,7 @@
     transform: rotate(359deg)
 
 
-.svg
+.floating-svg
   $size: 50px
   position: absolute
   bottom: -10vh
@@ -33,24 +34,74 @@
   z-index: 0
   path
     fill: #000
-    fill-opacity: 0.15
+    fill-opacity: 0.1
+    @include md
+      fill-opacity: 0.15
 
 $total: 20
+$padding: 2.5%
 @for $i from 1 through $total
-  .svg:nth-of-type(#{$i})
-    left: random(100) * 1% - 20
+  .floating-svg:nth-of-type(#{$i})
+    left: $padding + calc($i / $total) * (100% - ($padding * 2))
     // left: -15vw
     animation: raise#{$i} 6 + random(15) +s linear infinite
     animation-delay: random(5) - 5 + s
-    transform: scale(.15 * $i + .5) rotate(random(360) + deg)
+    $scale: scale(random(2) + .5)
+    $rotate-deg: random(270) + deg
+    transform: $scale rotate(0deg)
+    // z-index: 0
     // filter: blur($i - $total - 2 + px)
+    filter: blur(3px)
+    @include md
+      filter: blur(1px)
     @keyframes raise#{$i}
       to
         bottom: 130vh // adjust to height of the page
-        transform: scale(.15 * $i + .5) rotate(random(360) + deg)
+        // @if random(1) >= 0.5
+        @if $i % 2 == 0
+          transform: $scale rotate(360deg)
+        @else
+          transform: $scale rotate(-360deg)
+
+// $total: 20
+// @for $i from 1 through $total
+//   .floating-svg:nth-of-type(#{$i})
+//     left: random(100) * 1% - 20
+//     // left: -15vw
+//     animation: raise#{$i} 6 + random(15) +s linear infinite
+//     animation-delay: random(5) - 5 + s
+//     transform: scale(.15 * $i + .5) rotate(random(360) + deg)
+//     // filter: blur($i - $total - 2 + px)
+//     @keyframes raise#{$i}
+//       to
+//         bottom: 130vh // adjust to height of the page
+//         transform: scale(.15 * $i + .5) rotate(random(360) + deg)
 
 
 
+
+
+.film
+  // aspect-ratio: 16 / 9
+  background: #000
+  background-image: linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff)
+
+  $percentages: 5% 5%
+
+  background-repeat: no-repeat
+  background-position: 5% 5%, 15% 5%, 25% 5%, 35% 5%, 45% 5%, 55% 5%, 65% 5%, 75% 5%, 85% 5%, 95% 5%, 5% 95%, 15% 95%, 25% 95%, 35% 95%, 45% 95%, 55% 95%, 65% 95%, 75% 95%, 85% 95%, 95% 95%
+  background-size: $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages
+  // background-position: 3% 5%, 15% 5%, 25% 5%, 35% 5%, 45% 5%, 55% 5%, 65% 5%, 75% 5%, 85% 5%, 97% 5%, 3% 95%, 15% 95%, 25% 95%, 35% 95%, 45% 95%, 55% 95%, 65% 95%, 75% 95%, 85% 95%, 95% 95%
+  // background-size: 7% 5%, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, 7% 5%, 7% 5%, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages, $percentages
+
+  &__frame
+    padding: 14% 4px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    img
+      max-width: 100%
+      // border-radius: 2px
 
 
 
@@ -181,3 +232,11 @@ makes marque flash rainbow
     background-position: 100% 50%
   100%
     background-position: 0% 50%
+
+
+@mixin elevation
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+
+@mixin rainbow-box-shadow
+  -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0)
+  box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0)

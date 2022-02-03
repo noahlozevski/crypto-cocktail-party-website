@@ -6,7 +6,7 @@
   $active-color: #3568ff
 
   appearance: none
-  border: 4px solid #dadada7a
+  border: 4px dashed #dadada7a
   position: relative
   // background: $initial-background
   background-color: rgb(255,255,255,0.1)
@@ -32,6 +32,7 @@
   &:hover
     --spacing: 0
     --duration: .4s
+    // border-style: solid
 
     border-color: $white
 
@@ -62,7 +63,7 @@
   fill: $light-green
 .rightBottom
   transform: translate(var(--spacing, 4px), var(--spacing, 40px))
-  fill: $violet
+  fill: $dark-blue
 .leftBottom
   transform: translate(var(--spacing, -40px), var(--spacing, 40px))
   fill: $light-purple
