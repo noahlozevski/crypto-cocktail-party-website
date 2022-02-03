@@ -5,7 +5,7 @@ export default ({
   pauseOnHover = false,
   pauseOnClick = false,
   direction = 'left',
-  speed = 100,
+  speed = 50,
   showGradient = false,
   children,
 }) => (

@@ -7,6 +7,7 @@ import { DESCRIPTION } from '~/constants/website'
 import theme from '~/styles/theme'
 
 export default class MyDocument extends Document {
+
   render() {
     return (
       <Html lang="en">

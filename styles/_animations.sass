@@ -203,7 +203,43 @@ $padding: 2.5%
 //     background-position: 0% 50%
 
 
-makes marque flash rainbow
+@mixin squiggly-border($width: 0px)
+  position: relative
+  &::before
+    content: ""
+    // width: 100%
+    right: -$width
+    bottom: -$width
+    // width: 110%
+    // height: 100%
+    // top: -5%
+    top: -$width
+    left: -$width
+    filter: url(#squiggle)
+    // z-index: -1
+    // background: red
+    position: absolute
+    @content
+
+@mixin squiggly-border-after($width: 0px)
+  position: relative
+  &::after
+    content: ""
+    // width: 100%
+    right: -$width
+    bottom: -$width
+    // width: 110%
+    // height: 100%
+    // top: -5%
+    top: -$width
+    left: -$width
+    filter: url(#squiggle)
+    // z-index: -1
+    // background: red
+    position: absolute
+    @content
+
+// makes marque flash rainbow
 @mixin gradient-border($border-width: 3px)
   background: #1D1F20
   position: relative

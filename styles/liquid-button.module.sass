@@ -1,18 +1,27 @@
 @import variables
+@import animations
 
 .button
   $border-radius: 36px
   // $initial-background: none
   $active-color: #3568ff
-
+  border: none
   appearance: none
   border: 4px dashed #dadada7a
+
   position: relative
   // background: $initial-background
   background-color: rgb(255,255,255,0.1)
   color: #fff
   outline: none
-  cursor: pointer
+  // filter: url(#squiggl)
+  // cursor: pointer
+  @include pointer
+  // @include squiggly-border-after(4px)
+  //   border: 4px dashed #dadada
+  //   border-radius: $border-radius
+    // z-index: 1
+
   // max-width: 300px
   // font-size: 14px
   // line-height: 21px

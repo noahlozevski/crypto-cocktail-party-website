@@ -14,3 +14,19 @@
 @mixin xl
   @media only screen and (min-width: 1536px)
     @content
+
+@mixin sm-only
+  @media only screen and (min-width: 600px) and (max-width: 900px)
+    @content
+
+@mixin md-only
+  @media only screen and (min-width: 900px) and (max-width: 900px)
+    @content
+
+@mixin lg-only
+  @media only screen and (min-width: 1200px) and (max-width: 1200px)
+    @content
+
+@mixin xl-only
+  @media only screen and (min-width: 1536px) and (max-width: 1536px)
+    @content
