@@ -4,6 +4,7 @@ import FloatingSvgs from '@/components/FloatingSvgs'
 import Headroom from 'react-headroom'
 import Tilt from 'react-parallax-tilt'
 import { useState } from 'react'
+import { BANNER_HEIGHT, SCROLLER_HEIGHT } from '@/constants/styles'
 import ScrollingNfts from '@/components/ScrollingNfts'
 // import useMediaQuery from '@mui/material/useMediaQuery'
 // import { useTheme } from '@mui/material/styles'
@@ -22,19 +23,16 @@ import classNames from 'classnames'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import CardCarousel from '@/components/CardCarousel'
 
-const bannerHeight = 80 // px
-const scrollerHeight = 150 // px
-
 export default () => {
-  const [useGradient, setUseGradient] = useState(false)
-  const toggleGradient = (e) => (e.preventDefault(), setUseGradient((g) => !g))
+  // const [useGradient, setUseGradient] = useState(false)
+  // const toggleGradient = (e) => (e.preventDefault(), setUseGradient((g) => !g))
 
   // const theme = useTheme()
   // const matches = useMediaQuery(theme.breakpoints.up('sm'))
 
   return (
     <div id="home">
-      <div className={classNames('page', 'splash', useGradient ? 'gradient-backdrop' : 'solid-background')} style={{ overflow: 'hidden' }}>
+      <div className={classNames('page', 'splash',  'solid-background')} style={{ overflow: 'hidden' }}>
         {/* header */}
         {/* <ScrollingLogoMarquee /> */}
         <Headroom
@@ -50,34 +48,57 @@ export default () => {
           // onPin={() => setPinned(false)}
           // onUnfix={() => setPinned(true)}
         >
-          <Container maxWidth="lg" sx={{ height: bannerHeight + 'px' }}>
+          <Container maxWidth="xl" sx={{ height: BANNER_HEIGHT + 'px' }}>
             <nav className="app-nav">
               <Box
-                className="logo-container"
+                className="logo-container side-container-width"
                 sx={{
                   // width: {
                   //   xs: '200px',
                   //   lg: ''
                   // }
                   // verticalAlign: 'middle',
-                  mr: 'auto',
+
+                  // mx: {
+                  //   'auto'
+                  // },
                   height: '80px',
                 }}
               >
-                <img height={60} src={require('@/public/images/logo-text-pic.png')}></img>
+                <img height={40} src={require('@/public/images/logo-icon-white.svg')}></img>
               </Box>
-              <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank" onClick={toggleGradient}>
-                <TwitterIcon className="nav-icon" fontSize="large" sx={{ color: 'white' }}></TwitterIcon>
-              </a>
-              <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank" onClick={toggleGradient}>
-                <img className="nav-icon" width={36} src={require('@/public/images/discord.svg')}></img>
-              </a>
-              <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank" onClick={toggleGradient}>
+
+              <Box
+                className="text-logo-container"
+                sx={{
+                  // width: {
+                  //   xs: '200px',
+                  //   lg: ''
+                  // }
+                  // verticalAlign: 'middle',
+
+                  // mx: {
+                  //   'auto'
+                  // },
+                  height: '80px',
+                }}
+              >
+                <img height={40} src={require('@/public/images/logo-white.svg')}></img>
+              </Box>
+              <div className="link-container side-container-width">
+                <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank">
+                  <TwitterIcon className="nav-icon" fontSize="large" sx={{ color: 'white' }}></TwitterIcon>
+                </a>
+                <a href="https://discord.gg/Effcv4Ph" className="nav-link" rel="noopener noreferrer" target="_blank">
+                  <img className="nav-icon" width={36} src={require('@/public/images/discord.svg')}></img>
+                </a>
+                {/* <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank">
                 <img className="nav-icon" height={32} src={require('@/public/images/etherscan.svg')}></img>
-              </a>
-              <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank" onClick={toggleGradient}>
-                <img className="nav-icon" height={32} src={require('@/public/images/opensea.svg')}></img>
-              </a>
+              </a> */}
+                <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank">
+                  <img className="nav-icon" height={32} src={require('@/public/images/opensea.svg')}></img>
+                </a>
+              </div>
               {/* <TwitterIcon fontSize="large" sx={{ color: 'white' }}></TwitterIcon> */}
             </nav>
           </Container>
@@ -94,15 +115,15 @@ export default () => {
             // minHeight: {
             //   md: '',
             //   // xs: 'max-content',
-            //   // xs: `calc(100vh - ${bannerHeight}px)`,
-            //   // lg: `calc(100vh - ${bannerHeight}px)`,
+            //   // xs: `calc(100vh - ${BANNER_HEIGHT}px)`,
+            //   // lg: `calc(100vh - ${BANNER_HEIGHT}px)`,
             //   // md: '100vh'
             // },
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-end',
             flexWrap: 'wrap',
-            // marginTop: `-${bannerHeight / 2}px`,
+            // marginTop: `-${BANNER_HEIGHT / 2}px`,
           }}
         >
           {/* <Grid container spacing={{ xs: 2, lg: 2 }} sx={{
@@ -142,18 +163,18 @@ export default () => {
               mt: {
                 xs: 2,
                 md: -5,
-                lg: 'auto'
+                lg: 'auto',
               },
               mb: {
                 xs: 4,
                 md: 0,
-              }
+              },
             }}
           >
             <div className="mint-info-container">
               <div className="mint-info">0 / 7777 Minted</div>
               <div className="connect-button-wrapper">
-              <LiquidButton>Connect Wallet</LiquidButton>
+                <LiquidButton>Connect Wallet</LiquidButton>
               </div>
               <Box
                 sx={{
@@ -163,9 +184,8 @@ export default () => {
                   },
                   height: {
                     md: 280,
-                    lg: 450
-                  }
-
+                    lg: 450,
+                  },
                 }}
               >
                 <CardCarousel />
@@ -254,11 +274,11 @@ export default () => {
         <Container
           maxWidth="md"
           sx={{
-            // height: `calc(100vh - ${bannerHeight}px)`,
+            // height: `calc(100vh - ${BANNER_HEIGHT}px)`,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            // marginTop: `-${bannerHeight / 2}px`,
+            // marginTop: `-${BANNER_HEIGHT / 2}px`,
           }}
         >
           <Box className="about-container">

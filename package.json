@@ -30,6 +30,7 @@
     "react-fast-marquee": "^1.3.1",
     "react-headroom": "^3.2.0",
     "react-parallax-tilt": "^1.5.90",
+    "responsive-loader": "^2.3.0",
     "sass": "^1.49.0"
   },
   "devDependencies": {
