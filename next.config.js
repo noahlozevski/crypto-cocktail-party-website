@@ -22,7 +22,7 @@ const imageLoaderConfig = {
   handleImages: ['jpeg', 'png', 'svg', 'gif'],
   removeOriginalExtension: false,
   optimizeImages: true,
-  optimizeImagesInDev: false,
+  optimizeImagesInDev: true,
   mozjpeg: {
     quality: 80,
   },

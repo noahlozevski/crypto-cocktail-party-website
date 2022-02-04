@@ -48,28 +48,22 @@ const Layout = ({ children }) => (
         <div className="random-shape">
         </div>
       </div> */}
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0" width="0">
-        <defs>
-          <filter id="squiggle">
-            <feTurbulence type="fractalNoise" id="turbulence" baseFrequency=".05" numOctaves="4" />
-            <feDisplacementMap id="displacement" in="SourceGraphic" scale="4" />
-          </filter>
-        </defs>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0" width="0">
-          <defs>
-              <filter id="turbulence">
-                  <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="4" />
-              </filter>
-              <filter id="displacement">
-                  <feDisplacementMap in="SourceGraphic" scale="4" />
-              </filter>
-              <filter id="combined">
-                  <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="4" />
-                  <feDisplacementMap in="SourceGraphic" scale="4" />
-              </filter>
-          </defs>
-      </svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0" width="0" style={{ display: 'none' }}>
+    <filter id="squiggle">
+      <feTurbulence type="fractalNoise" id="turbulence" baseFrequency=".05" numOctaves="4" />
+      <feDisplacementMap id="displacement" in="SourceGraphic" scale="4" />
+    </filter>
+        <filter id="turbulence">
+            <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="4" />
+        </filter>
+        <filter id="displacement">
+            <feDisplacementMap in="SourceGraphic" scale="4" />
+        </filter>
+        <filter id="combined">
+            <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="4" />
+            <feDisplacementMap in="SourceGraphic" scale="4" />
+        </filter>
+</svg>
     </div>
   </>
 )

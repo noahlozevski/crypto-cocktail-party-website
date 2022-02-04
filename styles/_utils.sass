@@ -1,4 +1,7 @@
-// @mixin xs
+@mixin xs
+  @media only screen and (min-width: 375px)
+    @content
+
 @mixin sm
   @media only screen and (min-width: 600px)
     @content

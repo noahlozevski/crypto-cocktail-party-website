@@ -184,6 +184,8 @@ export default () => {
           >
             <div className="mint-info-container">
               <div className="mint-info">0 / 7777 Minted</div>
+              <div className="mint-info-coming-soon">Coming Late Feb!</div>
+
               <div className="connect-button-wrapper">
                 <LiquidButton>Connect Wallet</LiquidButton>
               </div>
@@ -298,7 +300,8 @@ export default () => {
               elevation={4}
               sx={{
                 borderRadius: 12,
-                my: 6,
+                my: 8,
+                mt: 12,
                 px: 4,
                 py: 4,
               }}
@@ -319,7 +322,7 @@ export default () => {
                     <h1 className="about-title">What is Crypto Cocktail Party?</h1>
                     <hr></hr>
                     <p className="about-text">Crypto Cocktail Party is a community driven project consisting of 7,777 unique Cocks & Cockettes. The main focus of the collection is to build a ‘flock’ and give back to the flock’s members. We are re-distributing 25% of our revenue back to the holders in numerous giveaways, IRL meet-ups, activities, and much more to come. </p>
-                    <p className="about-text">So the real question is, do you want to join the party?</p>
+                    <p className="about-text">So the real question is, are you going to join the party?</p>
                   </Box>
                 </Grid>
                 <Grid
@@ -340,7 +343,7 @@ export default () => {
                       // src={require('@/public/images/cycle-512.gif')}
                       height={514}
                       width={512}
-                      src={require('@/public/images/scrolling-nfts/Macintosh.png')}
+                      src={require('@/public/images/scrolling-nfts/Macintosh.png?size=1500&webp')}
                     ></img>
                   </div>
                 </Grid>
@@ -370,11 +373,11 @@ export default () => {
               </Grid> */}
           </Box>
         </Container>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ pb: 6 }}>
           <div className="the-team">
             <div className="team-card ">
               <div className="img ">
-                <img src={require('@/public/images/scrolling-nfts/Greece.png')}></img>
+                <img src={require('@/public/images/scrolling-nfts/Greece.png?size=1500&webp')}></img>
               </div>
               <div className="title">Head Dev</div>
               <div className="name">The Validator</div>
@@ -382,7 +385,7 @@ export default () => {
             </div>
             <div className="team-card">
               <div className="img">
-                <img src={require('@/public/images/scrolling-nfts/Spunky.png')}></img>
+                <img src={require('@/public/images/scrolling-nfts/Spunky.png?size=1500&webp')}></img>
               </div>
               <div className="title">Artist</div>
               <div className="name">Jonah</div>
@@ -390,7 +393,7 @@ export default () => {
             </div>
             <div className="team-card">
               <div className="img">
-                <img src={require('@/public/images/scrolling-nfts/Browser.png')}></img>
+                <img src={require('@/public/images/scrolling-nfts/Browser.png?size=1500&webp')}></img>
               </div>
               <div className="title">Project Manager</div>
               <div className="name">Coozy</div>
@@ -404,7 +407,7 @@ export default () => {
       <ScrollingNfts />
       <ScrollingNfts direction="right" />
       <ScrollingNfts />
-      <ScrollingNfts direction="right" />
+      {/* <ScrollingNfts direction="right" /> */}
       <div className="page faqs green-background ">
         {/* <ScrollingLogoMarquee /> */}
         <Container
@@ -414,6 +417,7 @@ export default () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            py: 8,
             // marginTop: `-${BANNER_HEIGHT / 2}px`,
           }}
         >
@@ -430,43 +434,60 @@ export default () => {
             >
               <h1 className="title">FAQ's</h1>
               <div className="items">
-                <div className="item" >
-                  <h2 className={classNames("question", activeFaq === 2 && "expanded")} onClick={() => setActiveFaq(p => p !== 2 && 2)}>WHAT IS THE TOTAL SUPPLY ?</h2>
+                <div className="item">
+                  <h2 className={classNames('question', activeFaq === 2 && 'expanded')} onClick={() => setActiveFaq((p) => p !== 2 && 2)}>
+                    <div>WHAT IS THE TOTAL SUPPLY ?</div>
+                  </h2>
                   <Collapse in={activeFaq === 2}>
                     <p className="answer">There will be 7,777 NFT’s in our collection.</p>
                   </Collapse>
                 </div>
-                <div className="item" >
-                  <h2 className={classNames("question", activeFaq === 0 && "expanded")} onClick={() => setActiveFaq(p => p !== 0 && 0)} >WHEN IS THE OFFICIAL LAUNCH ?</h2>
+                <div className="item">
+                  <h2 className={classNames('question', activeFaq === 0 && 'expanded')} onClick={() => setActiveFaq((p) => p !== 0 && 0)}>
+                    <div>WHEN IS THE OFFICIAL LAUNCH ?</div>
+                  </h2>
                   <Collapse in={activeFaq === 0}>
                     <p className="answer">The launch date is set for the end of February. BarnPass Holders will be notified 48 hours prior to mint to give ample time to fit the launch into their schedule. The Public Sale will commence 24 hours after the conclusion of the Pre-Sale.</p>
                   </Collapse>
                 </div>
-                <div className="item" >
-                  <h2 className={classNames("question", activeFaq === 1 && "expanded")} onClick={() => setActiveFaq(p => p !== 1 && 1)}>HOW DO I GET A BARNPASS ?</h2>
+                <div className="item">
+                  <h2 className={classNames('question', activeFaq === 5 && 'expanded')} onClick={() => setActiveFaq((p) => p !== 5 && 5)}>
+                    <div>IS THERE A ROADMAP ?</div>
+                  </h2>
+                  <Collapse in={activeFaq === 5}>
+                    <p className="answer">The launch date is set for the end of February. BarnPass Holders will be notified 48 hours prior to mint to give ample time to fit the launch into their schedule. The Public Sale will commence 24 hours after the conclusion of the Pre-Sale.</p>
+                  </Collapse>
+                </div>
+                <div className="item">
+                  <h2 className={classNames('question', activeFaq === 1 && 'expanded')} onClick={() => setActiveFaq((p) => p !== 1 && 1)}>
+                    <div>HOW DO I GET A BARNPASS ?</div>
+                  </h2>
                   <Collapse in={activeFaq === 1}>
                     <p className="answer">You can get the BarnPass role by following the steps in the Discord. Under the #how-to-barnpass channel.</p>
                   </Collapse>
                 </div>
-                <div className="item" >
-                  <h2 className={classNames("question", activeFaq === 3 && "expanded")} onClick={() => setActiveFaq(p => p !== 3 && 3)}>WHAT IS THE MINT PRICE OF CRYPTO COCKTAIL PARTY ?</h2>
+                <div className="item">
+                  <h2 className={classNames('question', activeFaq === 3 && 'expanded')} onClick={() => setActiveFaq((p) => p !== 3 && 3)}>
+                    <div>WHAT IS THE MINT PRICE OF CRYPTO COCKTAIL PARTY ?</div>
+                  </h2>
                   <Collapse in={activeFaq === 3}>
                     <p className="answer">Our BarnPass Holders mint price will be .077. The Public Sale mint price is TBD.</p>
                   </Collapse>
                 </div>
-                <div className="item" >
-                  <h2 className={classNames("question", activeFaq === 4 && "expanded")} onClick={() => setActiveFaq(p => p !== 4 && 4)}>HOW CAN I BUY A CRYPTO COCKTAIL PARTY NFT ?</h2>
+                <div className="item">
+                  <h2 className={classNames('question', activeFaq === 4 && 'expanded')} onClick={() => setActiveFaq((p) => p !== 4 && 4)}>
+                    <div>HOW CAN I BUY A CRYPTO COCKTAIL PARTY NFT ?</div>
+                  </h2>
                   <Collapse in={activeFaq === 4}>
                     <div className="answer">
-                      <p>
-                      You will be able to purchase to the NFT directly from this website on our Mint Date by using the MetaMask extension. If you are new to the NFT space, follow the steps below to set up your MetaMask.</p>
+                      <p>You will be able to purchase to the NFT directly from this website on our Mint Date by using the MetaMask extension. If you are new to the NFT space, follow the steps below to set up your MetaMask.</p>
                       <ol>
                         <li>
                           Download the{' '}
                           <a href="https://metamask.io" target="_blank" rel="noopener noreferrer">
                             metamask.io
-                          </a>
-                          {' '}extension on your browser
+                          </a>{' '}
+                          extension on your browser
                         </li>
                         <li>Purchase Ethereum from various exchanges. You can do so on Coinbase or Opensea for example.</li>
                         <li>Transfer the Ethereum to your MetaMask wallet.</li>
@@ -476,28 +497,6 @@ export default () => {
                 </div>
               </div>
             </Paper>
-            {/* timleine view on right side of art progression */}
-            {/* <Grid
-                 item
-                 xs={12}
-                 md={6}
-                 sx={{
-                   display: 'flex',
-                   justifyContent: 'center',
-                   alignItems: 'center',
-                   flexDirection: 'column',
-                 }}
-               >
-                 <div className="cycle-container">
-                   <img
-                     className="cycle"
-                     src={require('@/public/images/cycle-512.gif')}
-                     height={514}
-                     width={512}
-                     // src={require('@/public/images/scrolling-nfts/Cucci.png')}
-                   ></img>
-                 </div>
-               </Grid> */}
           </Box>
           {/* <Box className="faq-container">
 
@@ -549,7 +548,7 @@ export default () => {
                 </div>
               </div>
             {/* timleine view on right side of art progression */}
-            {/* <Grid
+          {/* <Grid
                  item
                  xs={12}
                  md={6}
@@ -572,34 +571,70 @@ export default () => {
                </Grid> */}
           {/* </Box> */}
         </Container>
-        <Container maxWidth="xl">
-          <div className="the-team">
-            <div className="team-card">
-              <div className="img">
-                <img src={require('@/public/images/scrolling-nfts/Browser.png')}></img>
+        <div className="footer">
+          <Container maxWidth="xl">
+            <nav className="app-nav footer">
+              <Box
+                className="logo-container side-container-width"
+                sx={{
+                  // width: {
+                  //   xs: '200px',
+                  //   lg: ''
+                  // }
+                  // verticalAlign: 'middle',
+
+                  // mx: {
+                  //   'auto'
+                  // },
+                  height: '80px',
+                }}
+              >
+                <img height={40} src={require('@/public/images/logo-icon-white.svg')}></img>
+              </Box>
+
+              <Box
+                className="text-logo-container"
+                sx={{
+                  // width: {
+                  //   xs: '200px',
+                  //   lg: ''
+                  // }
+                  // verticalAlign: 'middle',
+
+                  // mx: {
+                  //   'auto'
+                  // },
+                  height: '80px',
+                }}
+              >
+                <img height={40} src={require('@/public/images/logo-white.svg')}></img>
+              </Box>
+              <Box
+                className="narrow-logo-container"
+                sx={{
+                  height: '80px',
+                }}
+              >
+                <img height={50} src={require('@/public/images/logo-narrow-white.svg')}></img>
+              </Box>
+              <div className="link-container side-container-width">
+                <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank">
+                  <TwitterIcon className="nav-icon" fontSize="large" sx={{ color: 'white' }}></TwitterIcon>
+                </a>
+                <a href="https://discord.gg/Effcv4Ph" className="nav-link" rel="noopener noreferrer" target="_blank">
+                  <img className="nav-icon" width={36} src={require('@/public/images/discord.svg')}></img>
+                </a>
+                {/* <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank">
+                <img className="nav-icon" height={32} src={require('@/public/images/etherscan.svg')}></img>
+              </a> */}
+                <a href="#" className="nav-link" rel="noopener noreferrer" target="_blank">
+                  <img className="nav-icon" height={32} src={require('@/public/images/opensea.svg')}></img>
+                </a>
               </div>
-              <div className="title">Head Dev</div>
-              <div className="name">The Validator</div>
-              <div className="description">Solidity expert. Cocktail Enthusiast. C++, Java, Tequila. </div>
-            </div>
-            <div className="team-card">
-              <div className="img">
-                <img src={require('@/public/images/scrolling-nfts/Browser.png')}></img>
-              </div>
-              <div className="title">Artist</div>
-              <div className="name">Jonah</div>
-              <div className="description">Double Vodka RedBull. Cocktail Enthusiast. C++, Java, Tequila.</div>
-            </div>
-            <div className="team-card">
-              <div className="img">
-                <img src={require('@/public/images/scrolling-nfts/Browser.png')}></img>
-              </div>
-              <div className="title">Project Manager</div>
-              <div className="name">Coozy</div>
-              <div className="description">Head of Marketing and Project Direction. Always looking for a good party.</div>
-            </div>
-          </div>
-        </Container>
+              {/* <TwitterIcon fontSize="large" sx={{ color: 'white' }}></TwitterIcon> */}
+            </nav>
+          </Container>
+        </div>
         {/* <ScrollingNfts direction="right" /> */}
       </div>
       {/* <div className="page " */}

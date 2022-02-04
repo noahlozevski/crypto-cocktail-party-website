@@ -274,3 +274,37 @@ $padding: 2.5%
 @mixin rainbow-box-shadow
   -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0)
   box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0)
+
+
+
+
+@mixin neon
+  // font-family: 'Monoton', cursive
+  // font-size: 130px
+  color: white
+  // position: absolute
+  // top: 50%
+  // left: 50%
+  // transform: translate(-50%, -50%)
+  font-weight: 400
+  letter-spacing: 8px
+  // text
+  // text-shadow: 1px 0px 4px #ffffffa6, 2px 0px 4px #ffffffa6, 3px 0px 4px #ffffffa6, 2px 0px 3px #ffffffa6, 2px 3px 15px #ffffffa6,
+
+
+.flicker-slow
+  animation: neon-flicker 3s linear infinite
+
+.flicker-fast
+  animation: neon-flicker 1s linear infinite
+
+@keyframes neon-flicker
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%
+    opacity: .99
+
+
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999%
+    opacity: 0.4
+
+
+
