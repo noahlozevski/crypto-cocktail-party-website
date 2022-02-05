@@ -15,6 +15,7 @@
     "@mui/lab": "^5.0.0-alpha.67",
     "@mui/material": "^5.3.1",
     "classnames": "^2.3.1",
+    "image-trace-loader": "^1.0.2",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",

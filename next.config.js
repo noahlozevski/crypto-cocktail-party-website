@@ -22,7 +22,7 @@ const imageLoaderConfig = {
   handleImages: ['jpeg', 'png', 'svg', 'gif'],
   removeOriginalExtension: false,
   optimizeImages: true,
-  optimizeImagesInDev: true,
+  optimizeImagesInDev: false,
   mozjpeg: {
     quality: 80,
   },
@@ -35,7 +35,6 @@ const imageLoaderConfig = {
     optimizationLevel: 3,
   },
   svgo: {
-    // enable/disable svgo plugins here
   },
   webp: {
     preset: 'default',

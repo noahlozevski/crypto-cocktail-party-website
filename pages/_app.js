@@ -15,7 +15,7 @@ import DefaultLayout from '~/layouts/default'
 import theme from '~/styles/theme'
 
 export function reportWebVitals(metric) {
-  console.log(metric)
+  // console.log(metric)
 }
 
 const clientSideEmotionCache = createEmotionCache()

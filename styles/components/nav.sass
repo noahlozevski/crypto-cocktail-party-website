@@ -1,0 +1,77 @@
+@import ../animations
+@import ../utils
+@import ../variables
+
+
+.sticky-header
+  height: $app-nav-height
+  background: $app-nav-background
+  position: fixed
+
+  top: 0
+  left: 0
+  right: 0
+  z-index: 99999999
+
+
+
+.headroom
+  // transition: background .2s ease-in-out
+
+.headroom--pinned
+  // backdrop: none
+  // transition: background 1s ease-in-out
+  // backdrop: blur(5px)
+  background-color: $app-nav-background
+
+// .top-navbar
+//   background: $app-nav-background
+
+.headroom--unfixed
+  .app-nav
+    background: none !important
+
+
+.app-nav
+  display: flex
+  align-items: center
+  width: 100%
+  justify-content: space-between
+  height: $app-nav-height
+  background: $app-nav-background
+
+  .side-container-width
+    width: 180px
+
+  .link-container
+    display: flex
+    align-items: center
+    // float: right
+
+  .text-logo-container
+    @include md
+      img
+        height: 35px
+    @include lg
+      img
+        height: 40px
+
+  // .logo-container
+  //   display: none
+  .narrow-logo-container
+    display: flex
+    @include md
+      display: none
+
+    align-items: center
+
+  .text-logo-container,.logo-container
+    align-items: center
+    display: none
+
+    @include md
+      display: flex
+
+
+  .nav-link
+    margin: 0 12px

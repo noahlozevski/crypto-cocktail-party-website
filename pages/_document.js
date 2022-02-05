@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 // import createEmotionServer from '@emotion/server/create-instance'
 // import createEmotionCache from '~/styles/createEmotionCache'
@@ -6,7 +7,8 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { DESCRIPTION } from '~/constants/website'
 import theme from '~/styles/theme'
 
-const G_TAG = '549QSDETHG' // EJ52H0RZGF
+// const G_TAG = '549QSDETHG' // dev
+const G_TAG = 'EJ52H0RZGF' //  prod
 
 export default class MyDocument extends Document {
   render() {
@@ -15,7 +17,6 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-
           {/* properly load device with TODO: research what else has to change here */}
           <meta name="description" content={DESCRIPTION} />
           {/* TODO: Update with real image / colors */}
@@ -26,8 +27,21 @@ export default class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-549QSDETHG"></script>
-          <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-${G_TAG}');` }}></script>
+
+          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${G_TAG}`} strategy="afterInteractive" />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-${G_TAG}');
+            `}
+          </Script>
+
+          {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-549QSDETHG"></script>
+          <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-${G_TAG}');` }}></script> */}
 
           <link rel="icon" href="/favicon.ico" />
         </Head>

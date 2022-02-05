@@ -75,8 +75,26 @@ $padding: 2.5%
 //         bottom: 130vh // adjust to height of the page
 //         transform: scale(.15 * $i + .5) rotate(random(360) + deg)
 
+.film-strip-boxes
+  background: $app-nav-background
+  padding-bottom: 5px
 
+.film-box
+  display: inline-block
+  $size: 10px
 
+  height: $size
+  width: $size
+  margin: 0 calc($size / 3)
+  background: $white
+  // padding: 2.5px 0
+
+  &:nth-child(10n)
+    background: black
+    width: 0
+
+  // &:nth-child(even)
+  //   background: $black
 
 
 .film

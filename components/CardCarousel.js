@@ -29,7 +29,7 @@ export default () => {
   return (
     // <div className="card-carousel-container">
     <>
-      <CardCarouselComponent autoplay autoplay_speed={1500} baseZIndex={2}>
+      <CardCarouselComponent autoplay autoplay_speed={2500} baseZIndex={2}>
         <div className="card-carousel-image-container">
           <img src={require('@/public/images/scrolling-nfts/Black Hole.png?size=1500&webp')}></img>
         </div>
